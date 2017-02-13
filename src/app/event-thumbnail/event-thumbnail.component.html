@@ -1,4 +1,4 @@
-<div class="card mb-2">
+<div class="card mb-2" [routerLink]="['/events', event.id]">
   <div class="card-block card-inverse card-primary">
     <h2 class="card-title">{{ event?.name }}</h2>
     <div>Date: {{ event?.date }} </div>
