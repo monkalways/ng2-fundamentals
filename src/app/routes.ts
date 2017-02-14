@@ -5,11 +5,13 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
 import { EventRouteActivator } from './event-details/event-route-activator.service';
+import { EventsListResolverService } from './shared/events-list-resolver.service';
 
 export const appRoutes: Routes = [
     { 
         path: 'events',
-        component: EventsListComponent
+        component: EventsListComponent,
+        resolve: { events: EventsListResolverService }
     },
     { 
         path: 'events/new',
@@ -29,5 +31,9 @@ export const appRoutes: Routes = [
         path: '',
         redirectTo: '/events',
         pathMatch: 'full'
+    },
+    {
+        path: 'user',
+        loadChildren: 'app/user/user.module#UserModule'
     }
 ];
