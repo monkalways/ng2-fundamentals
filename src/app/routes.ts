@@ -6,6 +6,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
 import { EventRouteActivator } from './event-details/event-route-activator.service';
 import { EventsListResolverService } from './shared/events-list-resolver.service';
+import { TestComponent } from './test/test.component';
 
 export const appRoutes: Routes = [
     { 
@@ -26,6 +27,10 @@ export const appRoutes: Routes = [
     { 
         path: '404',
         component: PageNotFoundComponent
+    },
+    {
+        path: 'test',
+        component: TestComponent
     },
     {
         path: '',

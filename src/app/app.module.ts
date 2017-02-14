@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './errors/page-not-found.component';
 import { EventRouteActivator } from './event-details/event-route-activator.service';
 import { EventsListResolverService } from './shared/events-list-resolver.service';
 import { AuthService } from './user/auth.service';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthService } from './user/auth.service';
     NavBarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
