@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 import { EventService } from '../shared/event.service';
+import { IEvent } from '../shared/event.model';
 
 @Component({
   templateUrl: './event-details.component.html',
@@ -9,7 +10,7 @@ import { EventService } from '../shared/event.service';
 })
 export class EventDetailsComponent implements OnInit {
 
-  event;
+  event: IEvent;
 
   constructor(private eventService: EventService,
     private route:ActivatedRoute) { }
