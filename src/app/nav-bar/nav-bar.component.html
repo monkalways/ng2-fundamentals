@@ -30,7 +30,7 @@
     </form>
     <span class="navbar-text ml-2">
       <a [routerLink]="['/user/login']" *ngIf="!authService.isAuthenticated()">Login</a>
-      <a [routerLink]="['/user/profile']" *ngIf="authService.isAuthenticated()">Welcome {{authService.currentUser.userName}}</a>
+      <a [routerLink]="['/user/profile']" *ngIf="authService.isAuthenticated()">Welcome {{authService.currentUser.firstName}}</a>
     </span>
   </div>
 </nav>
