@@ -3,12 +3,16 @@
   <hr>
   <div class="col-md-4">
     <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
-      <div class="form-group">
+      <div class="form-group" [class.error]="isFirstNameInvalid()">
         <label for="firstName">First Name:</label>
+        <em *ngIf="isFirstNameInvalid() && profileForm.controls.firstName.errors.required">Required</em>
+        <em *ngIf="isFirstNameInvalid() && profileForm.controls.firstName.errors.pattern">Must start with a letter</em>
         <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
       </div>
-      <div class="form-group">
+      <div class="form-group" [class.error]="isLastNameInvalid()">
         <label for="lastName">Last Name:</label>
+        <em *ngIf="isLastNameInvalid() && profileForm.controls.lastName.errors.required">Required</em>
+        <em *ngIf="isLastNameInvalid() && profileForm.controls.lastName.errors.pattern">Must start with a letter</em>
         <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
