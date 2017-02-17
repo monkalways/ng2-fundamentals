@@ -19,6 +19,7 @@ import { EventsListResolverService } from './shared/events-list-resolver.service
 import { AuthService } from './user/auth.service';
 import { TestComponent } from './test/test.component';
 import { CreateSessionComponent } from './create-session/create-session.component';
+import { SessionListComponent } from './session-list/session-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateSessionComponent } from './create-session/create-session.componen
     CreateEventComponent,
     PageNotFoundComponent,
     TestComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
