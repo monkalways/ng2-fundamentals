@@ -18,6 +18,7 @@ import { EventRouteActivator } from './event-details/event-route-activator.servi
 import { EventsListResolverService } from './shared/events-list-resolver.service';
 import { AuthService } from './user/auth.service';
 import { TestComponent } from './test/test.component';
+import { CreateSessionComponent } from './create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TestComponent } from './test/test.component';
     EventDetailsComponent,
     CreateEventComponent,
     PageNotFoundComponent,
-    TestComponent
+    TestComponent,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
