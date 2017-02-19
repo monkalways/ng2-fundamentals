@@ -21,6 +21,7 @@ import { TestComponent } from './test/test.component';
 import { CreateSessionComponent } from './create-session/create-session.component';
 import { SessionListComponent } from './session-list/session-list.component';
 import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
+import { DurationPipe } from './shared/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.co
     TestComponent,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,

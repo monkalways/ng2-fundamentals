@@ -1,4 +1,4 @@
-<div class="row" *ngFor="let session of sessions">
+<div class="row" *ngFor="let session of filteredSessions">
   <div class="col-md-10">
     <collapsible-well [title]="session.name">
       <div card-title>
@@ -7,7 +7,7 @@
       </div>
       <div card-body>
         <h6>{{ session.presenter }}</h6>
-        <span>Duration: {{ session.duration }}</span><br />
+        <span>Duration: {{ session.duration | duration }}</span><br />
         <span>Level: {{ session.level }}</span>
         <p>{{ session.abstract }}</p>
       </div>
