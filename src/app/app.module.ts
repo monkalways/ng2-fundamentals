@@ -20,6 +20,7 @@ import { AuthService } from './user/auth.service';
 import { TestComponent } from './test/test.component';
 import { CreateSessionComponent } from './create-session/create-session.component';
 import { SessionListComponent } from './session-list/session-list.component';
+import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SessionListComponent } from './session-list/session-list.component';
     PageNotFoundComponent,
     TestComponent,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
