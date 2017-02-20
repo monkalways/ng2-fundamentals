@@ -1,0 +1,15 @@
+<div class="modal fade" id="{{elementId}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true" #modalcontainer>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleId">{{title}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" (click)="closeModal()">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

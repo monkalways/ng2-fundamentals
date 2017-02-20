@@ -16,11 +16,14 @@ export class EventDetailsComponent implements OnInit {
   sortBy: string = "voters";
 
   constructor(private eventService: EventService,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute) {}
 
   ngOnInit() {
-    let id: number = Number.parseInt(this.route.snapshot.params['id']);
-    this.event = this.eventService.getEvent(id);
+    this.route.params.forEach(params => {
+      let id: number = +params['id'];
+      this.event = this.eventService.getEvent(id);
+      this.addMode = false;
+    })
   }
 
   addSession() {
