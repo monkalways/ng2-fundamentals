@@ -9,7 +9,6 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { EventService } from './shared/event.service';
-import { ToastrService } from './shared/toastr.service';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { appRoutes } from './routes';
 import { CreateEventComponent } from './create-event/create-event.component';
@@ -18,6 +17,17 @@ import { EventRouteActivator } from './event-details/event-route-activator.servi
 import { EventsListResolverService } from './shared/events-list-resolver.service';
 import { AuthService } from './user/auth.service';
 import { TestComponent } from './test/test.component';
+import { CreateSessionComponent } from './create-session/create-session.component';
+import { SessionListComponent } from './session-list/session-list.component';
+import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
+import { DurationPipe } from './shared/duration.pipe';
+import { TOASTR_TOKEN } from './shared/toastr.service';
+import { JQUERY_TOKEN } from './shared/j-query.service';
+import { SimpleModalComponent } from './simple-modal/simple-modal.component';
+import { ModalTriggerDirective } from './shared/modal-trigger.directive';
+
+declare let toastr: any;
+declare let jQuery: any;
 
 @NgModule({
   declarations: [
@@ -28,7 +38,13 @@ import { TestComponent } from './test/test.component';
     EventDetailsComponent,
     CreateEventComponent,
     PageNotFoundComponent,
-    TestComponent
+    TestComponent,
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsibleWellComponent,
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -39,7 +55,8 @@ import { TestComponent } from './test/test.component';
   ],
   providers: [
     EventService, 
-    ToastrService, 
+    { provide: TOASTR_TOKEN, useValue: toastr }, 
+    { provide: JQUERY_TOKEN, useValue: jQuery }, 
     EventRouteActivator,
     EventsListResolverService,
     AuthService,
