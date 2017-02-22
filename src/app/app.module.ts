@@ -25,6 +25,9 @@ import { TOASTR_TOKEN } from './shared/toastr.service';
 import { JQUERY_TOKEN } from './shared/j-query.service';
 import { SimpleModalComponent } from './simple-modal/simple-modal.component';
 import { ModalTriggerDirective } from './shared/modal-trigger.directive';
+import { UpvoteComponent } from './upvote/upvote.component';
+import { VoterService } from './shared/voter.service';
+import { LocationValidator } from './create-event/location-validator.directive';
 
 declare let toastr: any;
 declare let jQuery: any;
@@ -44,7 +47,9 @@ declare let jQuery: any;
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ declare let jQuery: any;
     EventRouteActivator,
     EventsListResolverService,
     AuthService,
-    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+    VoterService
   ],
   bootstrap: [AppComponent]
 })

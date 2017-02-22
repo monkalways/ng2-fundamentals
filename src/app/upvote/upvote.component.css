@@ -1,0 +1,26 @@
+.votingWidgetContainer {
+  padding-left:24px;
+}
+
+.votingWidget {
+  height: 64px;
+  padding-top: 7px;
+  border-radius: 21px;
+}
+
+.votingButton {
+  margin-left: -9px;
+  margin-top: 1px;
+  cursor:pointer;
+}
+
+.votingButton i {
+  color: black;
+}
+
+.votingCount {
+  margin-left: -11px;
+  margin-top: 1px;
+  font-weight: bold;
+  font-size: 14px;
+}
