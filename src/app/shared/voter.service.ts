@@ -9,15 +9,17 @@ export class VoterService {
   constructor(private http: Http) { }
 
   addVoter(session: ISession, voter: string): void {
-    session.voters.push(voter);
     this.http.post(`http://localhost:35618/api/events/${session.eventId}/sessions/${session.id}/voters?newvoter=${voter}`, null)
-      .map(response => <ISession>response.json()).subscribe();
+      .map(response => <ISession>response.json()).subscribe(s => {
+        session.voters.push(voter);
+      });
   }
 
   deleteVoter(session: ISession, voter: string): void {
-    session.voters = session.voters.filter(v => v !== voter);
     this.http.delete(`http://localhost:35618/api/events/${session.eventId}/sessions/${session.id}/voters/${voter}`, null)
-      .map(response => <ISession>response.json()).subscribe();
+      .map(response => <ISession>response.json()).subscribe(s => {
+        session.voters = session.voters.filter(v => v !== voter);
+      });
   }
 
   getVoters(session: ISession): Observable<string[]> {
