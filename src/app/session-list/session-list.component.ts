@@ -54,12 +54,17 @@ export class SessionListComponent implements OnInit, OnChanges {
     } else {
       this.voterService.addVoter(session, this.authService.currentUser.userName);
     }
+    
+    this.sortByVotes();
+  }
+
+  private sortByVotes() {
     if(this.sortBy === 'votes') {
       this.sortSessions(this.sortBy);
     }
   }
 
-  userHasVoted(session: ISession) {
-    return this.voterService.userHasVoted(session, this.authService.currentUser.userName);
+  userHasVoted(session: ISession): boolean {
+    return session.voters.indexOf(this.authService.currentUser.userName) !== -1;
   }
 }

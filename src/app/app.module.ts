@@ -13,7 +13,6 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { appRoutes } from './routes';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
-import { EventRouteActivator } from './event-details/event-route-activator.service';
 import { EventsListResolverService } from './shared/events-list-resolver.service';
 import { AuthService } from './user/auth.service';
 import { TestComponent } from './test/test.component';
@@ -28,6 +27,7 @@ import { ModalTriggerDirective } from './shared/modal-trigger.directive';
 import { UpvoteComponent } from './upvote/upvote.component';
 import { VoterService } from './shared/voter.service';
 import { LocationValidator } from './create-event/location-validator.directive';
+import { EventResolver } from './event-details/event-resolver.service';
 
 declare let toastr: any;
 declare let jQuery: any;
@@ -56,14 +56,15 @@ declare let jQuery: any;
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpModule
   ],
   providers: [
     EventService, 
     { provide: TOASTR_TOKEN, useValue: toastr }, 
-    { provide: JQUERY_TOKEN, useValue: jQuery }, 
-    EventRouteActivator,
+    { provide: JQUERY_TOKEN, useValue: jQuery },
     EventsListResolverService,
+    EventResolver,
     AuthService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     VoterService

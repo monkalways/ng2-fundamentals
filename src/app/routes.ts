@@ -4,10 +4,10 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
-import { EventRouteActivator } from './event-details/event-route-activator.service';
 import { EventsListResolverService } from './shared/events-list-resolver.service';
 import { TestComponent } from './test/test.component';
 import { CreateSessionComponent } from './create-session/create-session.component';
+import { EventResolver } from './event-details/event-resolver.service';
 
 export const appRoutes: Routes = [
     { 
@@ -23,7 +23,7 @@ export const appRoutes: Routes = [
     { 
         path: 'events/:id',
         component: EventDetailsComponent,
-        canActivate: [EventRouteActivator]
+        resolve: { event: EventResolver }
     },
     {
         path: 'events/session/new',
