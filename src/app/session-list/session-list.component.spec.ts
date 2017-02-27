@@ -1,28 +1,44 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { SessionListComponent } from './session-list.component';
+import { ISession } from '../shared/event.model';
 
 describe('SessionListComponent', () => {
-  let component: SessionListComponent;
-  let fixture: ComponentFixture<SessionListComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SessionListComponent ]
+    let component: SessionListComponent;
+    let mockAuthService, mockVoterService;
+
+    beforeEach(() => {
+        component = new SessionListComponent(mockAuthService, mockVoterService);
     })
-    .compileComponents();
-  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SessionListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    describe('ngOnChanges()', () => {
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        it('should filter the sessions correctly', () => {
+            component.sessions = <ISession[]> [
+                { name: 'session 1', level: 'intermediate' },
+                { name: 'session 2', level: 'beginner' },
+                { name: 'session 3', level: 'intermediate' }
+            ];
+            component.filterBy = 'intermediate';
+            component.sortBy = 'name';
+            
+            component.ngOnChanges();
+
+            expect(component.filteredSessions.length).toBe(2);
+        });
+
+        it('should sort the sessions correctly', () => {
+            component.sessions = <ISession[]> [
+                { name: 'session 3', level: 'intermediate' },
+                { name: 'session 2', level: 'beginner' },
+                { name: 'session 1', level: 'intermediate' }
+            ];
+            component.filterBy = 'all';
+            component.sortBy = 'name';
+            
+            component.ngOnChanges();
+
+            expect(component.filteredSessions[0].name).toBe('session 1');
+        });
+
+    });
 });
