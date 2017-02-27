@@ -17,14 +17,11 @@ describe('SessionListComponent (Integrated)', () => {
         debugEl: DebugElement;
 
     beforeEach(async(() => {
-        let mockAuthService = {
-            isAuthenticated: () => false,
-            currentUser: {
-                userName: 'john'
-            }
-        };
-        let mockVoterService = {
-        };
+        
+        let mockAuthService = jasmine.createSpyObj('mockAuthService', ['isAuthenticated', 'currentUser']);
+        // mockAuthService.isAuthenticated.and.returnValue(false);
+        // mockAuthService.currentUser.and.returnValue({ userName: 'john' });
+        let mockVoterService = jasmine.createSpyObj('mockVoterService', ['addVoter', 'deleteVoter', 'getVoters']);
 
         TestBed.configureTestingModule({
             imports: [],
